@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
+import org.apache.commons.io.IOUtils;
 import pt.up.fe.ddu.base.spectrum.Spectrum;
 
 public class ReportGenerator {
@@ -23,10 +24,12 @@ public class ReportGenerator {
 
 	public List<String> generate(File reportDirectory) {
 
-		List<String> result = null; 
+		List<String> result = null;
+		VisualizationData vd = new VisualizationData(report);
 
 		try {
 			result = writeMetrics(reportDirectory);
+			writeVisualization(reportDirectory, vd);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -67,6 +70,11 @@ public class ReportGenerator {
 			FileUtils.writeLines(f, r.exportSpectrum(), false);
 		}
 		FileUtils.writeLines(metricsFile, scores, false);
+	}
+
+	private void writeVisualization(File targetDir, VisualizationData vd) throws IOException {
+		File jsonTreeFile = new File(targetDir, "ddu.js");
+		FileUtils.write(jsonTreeFile, vd.serializeDDUData());
 	}
 
 }

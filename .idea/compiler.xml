@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ddu-base" />
+        <module name="ddu-maven-plugin" />
+        <module name="ddu-report" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ddu-base" target="1.6" />
+      <module name="ddu-maven-plugin" target="1.6" />
+      <module name="ddu-parent" target="1.6" />
+      <module name="ddu-report" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
